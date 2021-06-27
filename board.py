@@ -30,7 +30,8 @@ class Board:
 
     def check_for_filled_row(self, player, x, y, z):
         ret = False
-        if self.mutableBoardDict[x] == player and self.mutableBoardDict[y] == player and self.mutableBoardDict[z] == player:
+        if self.mutableBoardDict[x] == player and self.mutableBoardDict[y] == player and self.mutableBoardDict[
+            z] == player:
             ret = True
         return ret
 

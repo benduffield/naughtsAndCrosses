@@ -2,6 +2,7 @@ from board import Board
 from gameplay import player_choice, computer_choice
 import math
 
+
 def game():
     numGames = int(input("Welcome to naughts and crosses! What would you like to play best of?"))
     winGames = math.ceil(((numGames + 1) / 2))
