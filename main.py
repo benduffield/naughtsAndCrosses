@@ -2,7 +2,6 @@ from gameplay import Gameplay_Loop
 from board import Board
 import math
 
-MainLoop = Gameplay_Loop()
 
 def game():
     Name = input("Welcome to naughts and crosses! What is your name?")
@@ -13,10 +12,11 @@ def game():
     board.start_board()
     print("The computer will go first :)")
     active = True
+    gameplay = Gameplay_Loop(winGames, Name, numGames)
     while active:
-        active = MainLoop.computer_choice(winGames)
+        active = gameplay.computer_choice()
         if active is True:
-            active = MainLoop.player_choice(winGames, Name)
+            active = gameplay.player_choice()
 
 
 game()
