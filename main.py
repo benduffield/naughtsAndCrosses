@@ -8,11 +8,11 @@ def game():
     numGames = int(input("Hi " + str(Name) + ", What would you like to play best of?"))
     winGames = math.ceil(((numGames + 1) / 2))
     print("Okay! First to " + str(winGames) + " game(s) win!")
+    gameplay = Gameplay_Loop(winGames, Name, numGames)
     board = Board()
     board.start_board()
-    print("The computer will go first :)")
+    gameplay.first_turn(Name)
     active = True
-    gameplay = Gameplay_Loop(winGames, Name, numGames)
     while active:
         active = gameplay.computer_choice()
         if active is True:

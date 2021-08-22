@@ -16,6 +16,17 @@ class Gameplay_Loop:
         self.player1 = Player("real", Name)
         self.player1.token = "X"
 
+    def first_turn(self, Name):
+        first_go = input("Who would you like to go first? " + str(Name) + " [p] or Computer [c]?")
+        if first_go == "p":
+            Gameplay_Loop.player_choice(self)
+        elif first_go == "c":
+            return
+        else:
+            print("Please choose [p] or [c]")
+
+
+
     def computer_choice(self):
         random_entry = random.choice(GameplayBoard.mutableBoardList)
         self.update_board(random_entry, self.computer.token)
@@ -44,7 +55,7 @@ class Gameplay_Loop:
                 print("OVERALL CHAMPION = " + str(Player.name).upper())
                 print("=============")
                 return False
-            elif ((self.numGames % 2) == 0) and (self.computer.count == self.player1.count == (winGames - 1)):
+            elif ((self.numGames % 2) == 0) and (self.computer.count == self.player1.count == (self.winGames - 1)):
                     print("=============")
                     print("OVERALL SCORE = DRAW")
                     print("=============")
@@ -53,7 +64,8 @@ class Gameplay_Loop:
                 return True
         elif len(GameplayBoard.mutableBoardList) == 0:
             print("DRAW")
-            return False
+            GameplayBoard.clear_board()
+            return True
         else:
             return True
 
