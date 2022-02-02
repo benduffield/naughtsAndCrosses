@@ -17,6 +17,13 @@ def game():
         active = gameplay.computer_choice()
         if active is True:
             active = gameplay.player_choice()
-
+    play_again = input("Would you like to play again? Yes [y] or no [n]")
+    if play_again == "y":
+        game()
+    elif play_again == "n":
+        print("Thanks for playing!")
+        return
+    else:
+        "Please pick Yes [y] or no [n]"
 
 game()
